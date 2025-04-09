@@ -1,0 +1,5 @@
+/* 只保留：颜色、清除样式。 */
+.protyle-util .protyle-font > div:nth-child(n+1):nth-child(-n+6),
+.protyle-util .protyle-font > div:nth-child(n+17):nth-child(n+20) {
+    display: none;
+}

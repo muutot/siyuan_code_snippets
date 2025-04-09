@@ -1,0 +1,46 @@
+/* 显示标题 */
+.sy__outline .b3-list-item[title] {
+    display: inherit;
+}
+
+/* 字体 大小 清晰度 */
+.sy__outline .b3-list-item[data-type=NodeHeading][data-subtype=h1] .b3-list-item__text::before,
+.sy__outline .b3-list-item[data-type=NodeHeading][data-subtype=h2] .b3-list-item__text::before,
+.sy__outline .b3-list-item[data-type=NodeHeading][data-subtype=h3] .b3-list-item__text::before,
+.sy__outline .b3-list-item[data-type=NodeHeading][data-subtype=h4] .b3-list-item__text::before,
+.sy__outline .b3-list-item[data-type=NodeHeading][data-subtype=h5] .b3-list-item__text::before,
+.sy__outline .b3-list-item[data-type=NodeHeading][data-subtype=h6] .b3-list-item__text::before {
+    font-size: 14px !important;
+    opacity: 1;
+    font-family: 'yahei consolas hybrid', 'ibm plex mono', serif;
+}
+
+.sy__outline .b3-list-item[data-type=NodeHeading][data-subtype=h1] .b3-list-item__text::before {
+    content: "⓵";
+    color: red;
+}
+
+.sy__outline .b3-list-item[data-type=NodeHeading][data-subtype=h2] .b3-list-item__text::before {
+    content: "𝟮";
+    color: #0087ff;
+}
+
+.sy__outline .b3-list-item[data-type=NodeHeading][data-subtype=h3] .b3-list-item__text::before {
+    content: "𝟯";
+    color: #8694ff;
+}
+
+.sy__outline .b3-list-item[data-type=NodeHeading][data-subtype=h4] .b3-list-item__text::before {
+    content: "𝟒";
+    color: #ffa54b;
+}
+
+.sy__outline .b3-list-item[data-type=NodeHeading][data-subtype=h5] .b3-list-item__text::before {
+    content: "𝟓";
+    color: #9cfd57;
+}
+
+.sy__outline .b3-list-item[data-type=NodeHeading][data-subtype=h6] .b3-list-item__text::before {
+    content: "⒍";
+    color: #e7fd1a;
+}

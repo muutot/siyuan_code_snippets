@@ -1,0 +1,15 @@
+body {
+    background-image: url('https://img.picgo.net/2025/04/09/frosted_win9fab84c2e2014b72.jpg') !important;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* 透明化工作区 */
+.layout-tab-container, /* 编辑区 */
+.protyle, /* 大纲, 文档树 */
+.protyle-breadcrumb, /* 面包屑 */
+.fn__flex-column[data-type=wnd] > .fn__flex:first-child /* 标签页栏 */
+{
+    background-color: #00000000 !important;
+}

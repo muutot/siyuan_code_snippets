@@ -1,0 +1,36 @@
+#searchList [data-type=search-item] .b3-list-item__meta--ellipsis, #searchUnRefList [data-type=search-item] .b3-list-item__meta--ellipsis, #searchAssetList [data-type=search-item] .b3-list-item__meta--ellipsis {
+    max-width: calc(100% - 22px);
+    padding: 6px 0 8px 8px;
+    line-height: 1;
+    float: right;
+    right: 0;
+    bottom: 12px;
+    color: #78dfff;
+}
+
+#searchList [data-type=search-item] .b3-list-item__text, #searchUnRefList [data-type=search-item] .b3-list-item__text, #searchAssetList [data-type=search-item] .b3-list-item__text {
+    line-height: 1;
+    -webkit-line-clamp: 1;
+    display: contents;
+}
+
+#searchList [data-type=search-item], #searchUnRefList [data-type=search-item], #searchAssetList [data-type=search-item] {
+    flex-wrap: wrap;
+    padding: 4px;
+    display: flow-root;
+    justify-content: none;
+}
+
+/* 匹配选中颜色 */
+@supports (color: oklch(from red clamp(0, l * 0.5, 0.3) 0 h)) {
+    [data-theme-mode=dark] body:not(.has-exportimg) .protyle-wysiwyg [data-node-id] span[data-type~=search-mark].search-mark--hl {
+        box-shadow: 0 0 0 0.5px color(srgb 0 0.97 0.53), 0 13px 25px -2px color(srgb 0.08 0.83 0.53 / 0.4), 0 0 10px 0 rgb(from var(--b3-theme-accent) r g b / 0.2);
+    }
+}
+
+@supports (color: oklch(from red clamp(0, l * 0.5, 0.3) 0 h)) {
+    body:not(.has-exportimg) .protyle-wysiwyg [data-node-id] span[data-type~=search-mark].search-mark--hl {
+        background-color: oklch(0.73 0.22 149.52 / 0.38) !important;
+        box-shadow: 0 0 0 1px rgb(from var(--b3-theme-accent) r g b / 0.075), 0 13px 25px -2px rgb(from var(--b3-theme-accent) r g b / 0.075), 0 0 10px 0 rgb(from var(--b3-theme-accent) r g b / 0.075);
+    }
+}

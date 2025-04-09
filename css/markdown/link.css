@@ -1,0 +1,6 @@
+.protyle-wysiwyg [data-node-id] span[data-type~=a], .protyle-wysiwyg a {
+    color: var(--b3-protyle-inline-link-color);
+    text-decoration-line: underline;
+    text-decoration-thickness: .08em;
+    text-decoration-color: var(--b3-protyle-inline-link-color);
+}

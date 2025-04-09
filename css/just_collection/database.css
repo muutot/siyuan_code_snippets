@@ -1,0 +1,10 @@
+/* 隐藏特定数据库块的主键列 CSS片段 */
+/* author by JeffreyChen https://ld246.com/article/1728354035172 */
+/* 启用代码片段后，给需要隐藏主键的数据库块添加自定义属性：hide-block=true */
+.protyle-wysiwyg .av[custom-hide-block=true] [data-dtype="block"] {
+    display: none;
+}
+.protyle-wysiwyg .av[custom-hide-block=true] .av__calc[data-dtype="block"]:first-child + .av__calc {
+    padding-left: 1.625em;
+    box-sizing: initial;
+}

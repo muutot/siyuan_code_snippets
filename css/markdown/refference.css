@@ -1,0 +1,4 @@
+.bq[data-type="NodeBlockquote"] > .p,
+.bq .p {
+    margin-left: 10px;
+}

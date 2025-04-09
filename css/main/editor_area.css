@@ -1,0 +1,12 @@
+/* 编辑区填充 */
+.protyle-wysiwyg {
+    padding: 25px 50px 285px !important;
+}
+
+.protyle-wysiwyg span[data-type~=em], .protyle-wysiwyg em {
+    font-family: "Maple Mono NF CN", serif;
+}
+
+.protyle-title.protyle-wysiwyg--attr {
+    margin: 5px 50px 0 !important;
+}

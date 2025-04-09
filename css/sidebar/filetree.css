@@ -1,0 +1,134 @@
+/* 设置文档树字体大小 */
+.file-tree.fn__flex-1 {
+    font-size: 12px;
+}
+
+/* 隐藏: 文档树->文档->图标
+/* .file-tree>.fn__flex-1>ul>li>span.b3-list-item__icon.b3-tooltips.b3-tooltips__e {display:contents;} 显示第一层的图标*/
+.file-tree > .fn__flex-1 ul > li > span.b3-list-item__icon {
+    display: none;
+}
+
+/* 隐藏: 文档树->笔记本->更多设置按钮 */
+.file-tree > .fn__flex-1 > ul > li > span[data-type="more-root"] {
+    display: none !important;
+}
+
+/* 隐藏: 文档树->文档-> 更多设置按钮 */
+.file-tree > .fn__flex-1 ul > li > span[data-type="more-file"] {
+    display: none !important;
+}
+
+/* 隐藏: 文档树->文档->文档被引用个数 */
+.file-tree .popover__block {
+    display: hidden !important;
+}
+
+/* 隐藏文档树缩进线 */
+.file-tree > .fn__flex-1 ul {
+    background-image: none !important;
+}
+
+/*.file-tree > .fn__flex-1 {
+    --indent-color-inactive: none;
+    --indent-color-active: none;
+}*/
+
+/* [CSS片段] 文档树压缩  */
+:root {
+    /* 22, 40, 58, 76, 94, 112, 130 */
+    --level-tree-compress-scale: 0.01;
+    --level-tree-compress-0: 2px;
+    --level-tree-compress-spacing: 1px;
+    --level-tree-compress-spacing-res: calc(var(--level-tree-compress-spacing) * var(--level-tree-compress-scale));
+
+    --level-tree-compress-2: calc(var(--level-tree-compress-0) + var(--level-tree-compress-spacing-res));
+    --level-tree-compress-3: calc(var(--level-tree-compress-2) + var(--level-tree-compress-spacing-res));
+    --level-tree-compress-4: calc(var(--level-tree-compress-3) + var(--level-tree-compress-spacing-res));
+    --level-tree-compress-5: calc(var(--level-tree-compress-4) + var(--level-tree-compress-spacing-res));
+    --level-tree-compress-6: calc(var(--level-tree-compress-5) + var(--level-tree-compress-spacing-res));
+    --level-tree-compress-7: calc(var(--level-tree-compress-6) + var(--level-tree-compress-spacing-res));
+    --level-tree-compress-8: calc(var(--level-tree-compress-7) + var(--level-tree-compress-spacing-res));
+
+    --file-tree-margin-left: 7px;
+}
+
+.file-tree > .fn__flex-1 > ul > ul > li > span.b3-list-item__toggle {
+    padding-left: var(--level-tree-compress-2) !important;
+    margin-left: var(--level-tree-compress-2) !important;
+}
+
+.file-tree > .fn__flex-1 > ul > ul > ul > li > span.b3-list-item__toggle {
+    padding-left: var(--level-tree-compress-3) !important;
+    margin-left: var(--level-tree-compress-3) !important;
+}
+
+.file-tree > .fn__flex-1 > ul > ul > ul > ul > li > span.b3-list-item__toggle {
+    padding-left: var(--level-tree-compress-4) !important;
+    margin-left: var(--level-tree-compress-4) !important;
+}
+
+.file-tree > .fn__flex-1 > ul > ul > ul > ul > ul > li > span.b3-list-item__toggle {
+    padding-left: var(--level-tree-compress-5) !important;
+    margin-left: var(--level-tree-compress-5) !important;
+}
+
+.file-tree > .fn__flex-1 > ul > ul > ul > ul > ul > ul > li > span.b3-list-item__toggle {
+    padding-left: var(--level-tree-compress-6) !important;
+    margin-left: var(--level-tree-compress-6) !important;
+}
+
+.file-tree > .fn__flex-1 > ul > ul > ul > ul > ul > ul > ul > li > span.b3-list-item__toggle {
+    padding-left: var(--level-tree-compress-7) !important;
+    margin-left: var(--level-tree-compress-7) !important;
+}
+
+.file-tree > .fn__flex-1 > ul > ul > ul > ul > ul > ul > ul > ul > li > span.b3-list-item__toggle {
+    padding-left: var(--level-tree-compress-8) !important;
+    margin-left: var(--level-tree-compress-8) !important;
+}
+
+/* 文档树 目录间隔 */
+.file-tree .b3-list-item {
+    line-height: 20px;
+    min-height: 14px;
+    padding: 0 2px;
+    margin: 0 0;
+}
+
+/* 文档树 每一级设置 */
+.file-tree .fn__flex-1 > ul {
+    margin-left: var(--file-tree-margin-left);
+}
+
+.file-tree .fn__flex-1 > ul > ul {
+    margin-left: var(--file-tree-margin-left);
+}
+
+.file-tree > .fn__flex-1 > ul > ul > ul {
+    margin-left: var(--file-tree-margin-left);
+}
+
+.file-tree > .fn__flex-1 > ul > ul > ul > ul {
+    margin-left: var(--file-tree-margin-left);
+}
+
+.file-tree > .fn__flex-1 > ul > ul > ul > ul > ul {
+    margin-left: var(--file-tree-margin-left);
+}
+
+.file-tree > .fn__flex-1 > ul > ul > ul > ul > ul > ul {
+    margin-left: var(--file-tree-margin-left);
+}
+
+.file-tree > .fn__flex-1 > ul > ul > ul > ul > ul > ul > ul {
+    margin-left: var(--file-tree-margin-left);
+}
+
+.file-tree > .fn__flex-1 > ul > ul > ul > ul > ul > ul > ul > ul {
+    margin-left: var(--file-tree-margin-left);
+}
+
+.file-tree > .fn__flex-1 > ul > ul > ul > ul > ul > ul > ul > ul > ul {
+    margin-left: var(--file-tree-margin-left);
+}

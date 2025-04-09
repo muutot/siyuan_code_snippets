@@ -1,0 +1,67 @@
+/* toolbar */
+#layouts > div.fn__flex.fn__flex-1 > div.layout__center.fn__flex.fn__flex-1 > div > div > div.fn__flex {
+    background-color: #161616;
+}
+
+#AsriPluginsIconsDivider {
+    top: 5px !important;
+}
+
+.fn__flex-column[data-type=wnd] > .fn__flex:first-child {
+    height: var(--toolbar-height-self);
+}
+
+/* 标签配置 */
+.layout-tab-bar .item {
+    height: 22px;
+    min-height: 28px;
+    padding: 0;
+}
+
+/* 主菜单图标 */
+#toolbar #barWorkspace {
+    background-color: rgba(0, 0, 0, 0);
+    color: var(--b3-theme-on-surface);
+    font-weight: 500;
+    font-size: 6px;
+    height: 22px;
+    position: relative;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    outline: 1px solid var(--b3-border-color-trans);
+    outline-offset: -1px;
+}
+
+/* 屏蔽主菜单向下箭头 */
+#barWorkspace > svg {
+    display: none;
+}
+
+body:not(.body-asri--mobile,.body--window) .layout__dockl > .fn__flex:not(.fn__none):first-child .layout-tab-container,
+body:not(.body-asri--mobile,.body--window) .layout__dockl > .fn__flex.fn__none ~ .fn__flex .layout-tab-container,
+body:not(.body-asri--mobile,.body--window) .layout__dockr > .fn__flex:not(.fn__none):first-child .layout-tab-container,
+body:not(.body-asri--mobile,.body--window) .layout__dockr > .fn__flex.fn__none ~ .fn__flex .layout-tab-container {
+    padding-top: var(--avoid-topbar-self);
+}
+
+/* 屏蔽标签页 x 号 */
+.layout-tab-bar span.item__close {
+    display: none;
+}
+
+/* 图标大小 位置 */
+.layout-tab-bar .item__icon > img, .layout-tab-bar .item__icon > svg {
+    height: 14px;
+    width: 14px;
+    margin-top: 0;
+}
+
+/* 右侧功能图标位置 */
+div#AsriTopbarRightSpacing {
+    max-width: 18px;
+}
+
+/* 面包屑 */
+.protyle-breadcrumb {
+    height: 30px;
+}

@@ -1,0 +1,8 @@
+/* 屏蔽 Asri 骚操作*/
+.layout-tab-bar .item:not(.item--pin,.item--focus) .item__icon, .layout-tab-bar .item:not(.item--pin,.item--focus) .item__icon + .item__text {
+    transform: none;
+}
+
+.layout-tab-bar .item:not(.item--pin,.item--focus) .item__text {
+    transform: none;
+}

@@ -1,0 +1,38 @@
+:root {
+    --b3-theme-background: #1e1e1e;
+    --b3-theme-background-light: rgba(255, 255, 255, .075);
+    --b3-theme-surface: #2b2b2b;
+    --b3-font-family: "yahei consolas hybrid", "Maple Mono NF CN", system-ui, ui-sans-serif, -apple-system, BlinkMacSystemFont, "SF Pro SC", "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Luxi Sans", "DejaVu Sans", "PingFang SC", "Segoe UI", "Microsoft Yahei", "Hiragino Sans GB", sans-serif, "Segoe UI Emoji", "Noto Color Emoji", "Segoe UI Symbol", "Android Emoji", "EmojiSymbols" !important;
+}
+
+
+
+.b3-typography:not(.b3-typography--default),
+.protyle-wysiwyg,
+.protyle-title {
+    font-family: "yahei consolas hybrid", "Maple Mono NF CN", system-ui, ui-sans-serif, -apple-system, BlinkMacSystemFont,
+    "SF Pro SC", "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Luxi Sans", "DejaVu Sans", "PingFang SC", "Segoe UI",
+    "Microsoft Yahei", "Hiragino Sans GB", sans-serif, "Segoe UI Emoji", "Noto Color Emoji", "Segoe UI Symbol", "Android Emoji", "EmojiSymbols" !important;
+}
+
+body:not(.body-asri--mobile,.body--window) {
+    --toolbar-height: 32px;
+    --toolbar-height-self: 32px;
+    --topbar-z-index: 2;
+    --avoid-topbar-self: var(--toolbar-height-self);
+}
+
+body:not(.body-asri--mobile,.body--window) .layout__center .layout-tab-bar:not(body:not(.body-asri--mobile,.body--window) .layout__center .layout-tab-bar--readonly) {
+    margin-top: 4px;
+    margin-right: 4px;
+}
+
+body:not(.body-asri--mobile,.body--window) .layout__center .layout-tab-bar--readonly {
+    margin-left: 0;
+    margin-top: 4px;
+    margin-right: 4px;
+
+    & .item {
+        min-height: 28px;
+    }
+}

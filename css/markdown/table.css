@@ -1,0 +1,8 @@
+:is(.b3-typography,.protyle-wysiwyg) :is([data-node-id].table table), :is(.b3-typography,.protyle-wysiwyg) table {
+    margin-top: 12px;
+}
+
+.table .protyle-attr {
+    top: -6px;
+    font-size: 14px;
+}

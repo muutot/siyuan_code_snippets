@@ -1,0 +1,36 @@
+.protyle-wysiwyg .h1, .protyle-wysiwyg h1 {
+    margin-top: 0.3em;
+    text-align: center;
+    color: red;
+    border-bottom: 2px solid; /* 设置下边框的颜色和厚度 边框颜色设置为透明 */
+    border-color: transparent; /* 边框颜色设置为透明 */
+    border-image: linear-gradient(to right, #f00, #00f) 1; /* 设置渐变边框 */
+    border-radius: 0;
+}
+
+.protyle-wysiwyg .h2, .protyle-wysiwyg h2 {
+    color: #2091F6;
+    margin-top: 0.3em;
+}
+
+.protyle-wysiwyg .h3, .protyle-wysiwyg h3 {
+    color: #8694ff;
+    margin-top: 0.2em;
+}
+
+.protyle-wysiwyg .h4, .protyle-wysiwyg h4 {
+    color: #ffa54b;
+}
+
+.protyle-wysiwyg .h5, .protyle-wysiwyg h5 {
+    color: #9cfd57;
+}
+
+.protyle-wysiwyg .h6, .protyle-wysiwyg h6 {
+    color: #e7fd1a;
+}
+
+/* 超级块 h2 右移动一部分 */
+.sb > div.h2 {
+    text-align: center;
+}

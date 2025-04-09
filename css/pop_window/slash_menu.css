@@ -1,0 +1,18 @@
+/* /菜单弹出框 搜索后第一个元素 取消margin-top */
+.protyle-hint.b3-list.b3-list--background.hint--menu > div > button:nth-child(1),
+.protyle-hint.b3-list.b3-list--background.hint--menu .b3-menu__separator + button .b3-list-item__first {
+    margin-top: 0;
+    border-top: 0.1px solid; /* 设置下边框的厚度 */
+    border-color: transparent; /* 边框颜色设置为透明 */
+    border-radius: 0;
+    line-height: 27px;
+}
+
+.protyle-hint.b3-list.b3-list--background.hint--menu > div > button {
+    margin-left: 6px;
+    margin-right: 0;
+}
+
+.protyle-hint.b3-list.b3-list--background.hint--menu .b3-menu__separator {
+    display: none;
+}

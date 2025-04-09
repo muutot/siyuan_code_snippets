@@ -1,0 +1,3 @@
+.protyle-wysiwyg[data-readonly=false] [data-node-id].asri-selected-block:not(#plugin-focus-unique-id,[data-plugin-focus=true])::before {
+    content: none; /* 屏蔽Asri每行前面的光标 */
+}

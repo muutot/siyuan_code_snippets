@@ -1,0 +1,13 @@
+body:not(.body-asri--mobile,.body-asri--android,.body-asri--iosApp) .file-tree:where(.sy__file,.sy__outline,.sy__bookmark,.sy__tag,.sy__backlink) .block__icons::before {
+    content: none;
+}
+
+body:not(.body-asri--mobile,.body-asri--android,.body-asri--iosApp) .file-tree:where(.sy__file,.sy__outline,.sy__bookmark,.sy__tag,.sy__backlink) .block__icons > :where(div,span) {
+    transform: none;
+    transition: auto;
+    opacity: 1 !important;
+}
+
+body:not(.body-asri--mobile,.body-asri--android,.body-asri--iosApp) .file-tree:where(.sy__file,.sy__outline,.sy__bookmark,.sy__tag,.sy__backlink) .block__icons:hover, body:not(.body-asri--mobile,.body-asri--android,.body-asri--iosApp) .file-tree:where(.sy__file,.sy__outline,.sy__bookmark,.sy__tag,.sy__backlink) .block__icons:focus-within, .block__icons {
+    height: 30px !important;
+}

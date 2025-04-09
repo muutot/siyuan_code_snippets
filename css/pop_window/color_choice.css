@@ -1,0 +1,76 @@
+.protyle-util [style*="color:var(--b3-font-color"] {
+    font-size: 1.5em;
+    background: #00000000;
+    border: none;
+}
+
+/* 清除字体颜色的 box 样式 */
+.color__square,
+.color__square:hover {
+    box-shadow: 0 0 0 0 inset var(--b3-border-color-trans);
+}
+
+/* 去除无用的按钮 */
+.protyle-util .protyle-font > div:nth-child(n+5):nth-child(-n+8),
+.protyle-util .protyle-font > div:nth-child(n+17):nth-child(-n+20),
+.protyle-util .protyle-font > div:nth-child(22),
+.protyle-util .protyle-font > div:nth-child(24) {
+    display: none;
+}
+
+.protyle-util .protyle-font > div:nth-child(21) {
+    display: inline;
+    font-size: 16px;
+    position: relative;
+    top: 3px;
+    left: 5px;
+}
+
+.protyle-util .protyle-font > div:nth-child(21)::after {
+    content: ":  "
+}
+
+div.protyle-util .protyle-font > div:nth-child(23),
+div.protyle-util .protyle-font > div:nth-child(25) {
+    display: inline !important;
+    width: 120px;
+}
+
+div.protyle-util .protyle-font > div:nth-child(23) > select {
+    width: 120px;
+    margin-right: 4em;
+}
+
+.protyle-util .protyle-font {
+    max-width: none;
+}
+
+.protyle-font .b3-button {
+    border-radius: 7px;
+    padding: 4px 9px;
+    color: var(--b3-theme-on-background);
+    outline: 1px solid rgb(from var(--b3-theme-on-background) r g b / 0.2);
+    display: inline;
+    width: 103px;
+    position: relative;
+    right: 38px;
+    text-align: right;
+    font-size: 16px;
+}
+
+/* 清除样式历史记录优化 */
+.protyle-font .b3-button svg {
+    top: 6px;
+    position: absolute;
+    left: 10px;
+}
+
+button.protyle-font__style[data-type="clear"] {
+    font-size: 0;
+    line-height: 0;
+}
+
+.protyle-font > div:nth-child(15) > button::before,
+.protyle-font > div:nth-child(3) > button[aria-label="背景颜色"]::before {
+    content: "A";
+}

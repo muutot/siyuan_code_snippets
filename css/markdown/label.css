@@ -1,0 +1,72 @@
+.b3-chip--secondary, .b3-chip--primary, .b3-chip--info, .b3-chip--success,
+.b3-chip--warning, .b3-chip--error, .b3-chip--pink {
+    mix-blend-mode: normal !important;
+}
+
+.b3-chip--secondary::before,
+.b3-chip--primary::before,
+.b3-chip--info::before,
+.b3-chip--success::before,
+.b3-chip--warning::before,
+.b3-chip--error::before,
+.b3-chip--pink::before {
+    content: "#" !important;
+    margin-right: 5px; /* # 号距离文字的距离 */
+}
+
+/* 当鼠标移动到标签的时候 给x腾出空间 不显示前面的`#` */
+.b3-chip--secondary:hover::before,
+.b3-chip--primary:hover::before,
+.b3-chip--info:hover::before,
+.b3-chip--success:hover::before,
+.b3-chip--warning:hover::before,
+.b3-chip--error:hover::before,
+.b3-chip--pink:hover::before {
+    content: "" !important;
+}
+
+.protyle-background__ia .b3-chips {
+    margin-top: 18px;
+    padding: 0 0 0 0;
+}
+
+.protyle-background .b3-chip--secondary {
+    color: #fff !important;
+    background-color: #d6ff0070 !important;
+}
+
+.protyle-background .b3-chip--primary {
+    color: #fff !important;
+    background-color: #0053f9c4 !important;
+}
+
+.protyle-background .b3-chip--info {
+    color: var(--b3-card-info-color) !important;
+    background-color: #28405c !important;
+}
+
+.protyle-background .b3-chip--success {
+    color: var(--b3-card-success-color) !important;
+    background-color: #425347 !important;
+}
+
+.protyle-background .b3-chip--warning {
+    color: var(--b3-card-warning-color) !important;
+    background-color: #554636 !important;
+}
+
+.protyle-background .b3-chip--error {
+    color: var(--b3-card-error-color) !important;
+    background-color: #442724 !important;
+}
+
+.protyle-background .b3-chip--pink {
+    color: var(--b3-theme-on-secondary) !important;
+    background-color: #ea4aaa96 !important;
+}
+
+/* 行级标签 */
+.protyle-wysiwyg [data-node-id] span[data-type~=tag] {
+    --tag-color: #df8300;
+    font-size: 85%;
+}

@@ -1,0 +1,19 @@
+#protyle-sidebar {
+    top: 108px;
+}
+
+/* 选中高亮 */
+.b3-list-item--focus .ariaLabel {
+    color: #00fd00 !important;
+}
+
+/* 选择父元素高亮 */
+li:has(+ ul .b3-list-item--focus) .b3-list-item__text {
+    color: red !important;
+    font-weight: 600 !important;
+}
+
+/* 缩小最外面的左边距 */
+.fn__flex.fn__flex-1 .b3-list-item {
+    margin-left: 0;
+}

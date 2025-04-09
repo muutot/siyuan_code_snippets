@@ -1,0 +1,3 @@
+.protyle-wysiwyg [data-node-id] span[data-type~=block-ref]:not(.av__celltext), .protyle-wysiwyg [data-node-id] span[data-type~=file-annotation-ref] {
+    text-decoration-color: #2f89fd
+}

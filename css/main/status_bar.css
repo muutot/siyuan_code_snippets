@@ -1,0 +1,3 @@
+body:not(.body-asri--mobile) #dockBottom.fn__none:not(.has-layout-dockb-float) ~ #status .status__msg:not(:empty) {
+    max-width: 1920px;
+}

@@ -1,0 +1,72 @@
+.protyle-background__ia {
+    margin-left: 20px !important;
+}
+
+/* 文档内容标题 抬头 */
+.protyle-top > .protyle-title.protyle-wysiwyg--attr {
+    position: absolute;
+    top: 0;
+    left: 20%;
+    width: 76%;
+    font-size: 14px !important;
+}
+
+.protyle-title__input {
+    margin-top: 0; /* 抵消主题的css配置 (Asri) */
+}
+
+.protyle-title {
+    margin: 5px 0 0 10px !important;
+    width: 100%;
+    font-size: 1.3em;
+    top: 8px;
+    height: 100px;
+    left: 3%;
+    display: inline-block;
+    position: relative;
+    color: red;
+}
+
+/* 问得标题图标 */
+.protyle-background__icon img, .protyle-background__icon svg {
+    height: auto;
+    width: auto;
+    float: none;
+    border-radius: unset;
+}
+
+.protyle-top {
+    padding-bottom: 15px;
+    position: relative;
+    border-bottom: 2px solid;
+    border-color: transparent; /* 边框颜色设置为透明 */
+    border-image: linear-gradient(to right, #d2a5e9, #e11919, #19ff00) 1;
+    border-radius: 0;
+    min-height: 96px; /* 占位图标高度 */
+    max-width: 80%;
+    left: 10%;
+    display: flex;
+}
+
+.protyle-top .protyle-background__action {
+    display: inline-grid;
+    left: -1%;
+    width: 17%;
+}
+
+.protyle-top .protyle-background__img img {
+    max-height: 100px;
+}
+
+.protyle-too .protyle-background.protyle-background--enable {
+    width: 100%;
+}
+
+/* 按钮位置 */
+body:not(.body-asri--mobile) .protyle-background:not(.without-icon) .protyle-background__img.fn__none + .protyle-background__ia .protyle-background__action {
+    top: 18px;
+    left: 128px;
+    --y: 0;
+    --x: 0;
+    display: block;
+}

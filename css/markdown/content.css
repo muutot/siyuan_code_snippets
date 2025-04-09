@@ -1,0 +1,27 @@
+/* 加粗文本颜色 */
+.protyle-wysiwyg span[data-type~=strong],
+.protyle-wysiwyg strong {
+    color: #fbd80e;
+}
+
+.protyle-wysiwyg [data-node-id].li > .list {
+    margin-left: 10px !important;
+    padding-left: 16px;
+    padding-top: 0;
+    padding-bottom: 0
+}
+
+/* 文档上面的间距 */
+body:not(.body--mobile) .protyle-background .protyle-background__img.fn__none + .protyle-background__ia {
+    margin-top: 0;
+    padding-top: 0;
+}
+
+/* 文档前缀表情 */
+.b3-typography img.emoji, .protyle-wysiwyg img.emoji {
+    width: 24px;
+    cursor: auto;
+    vertical-align: middle;
+    margin-right: 2px;
+    margin-left: -3px;
+}

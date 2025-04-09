@@ -1,0 +1,15 @@
+/* 行级代码 */
+.protyle-wysiwyg span[data-type~=code], .protyle-wysiwyg code:not(.hljs) {
+    color: #00e100;
+    margin-left: 4px;
+    margin-right: 4px;
+    display: ruby;
+}
+
+/* fix 行级代码残留问题 */
+.b3-typography code:not(.hljs),
+.b3-typography span[data-type~='code'],
+.protyle-wysiwyg code:not(.hljs),
+.protyle-wysiwyg span[data-type~='code'] {
+    word-break: break-all;
+}

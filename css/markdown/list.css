@@ -1,0 +1,70 @@
+.protyle-wysiwyg [data-node-id].li > [data-node-id] {
+    padding-right: 0;
+}
+
+.b3-typography li > p,
+.b3-typography > p,
+.b3-typography blockquote > p,
+.b3-typography [data-node-id],
+.protyle-wysiwyg li > p,
+.protyle-wysiwyg > p,
+.protyle-wysiwyg blockquote > p,
+.protyle-wysiwyg [data-node-id] {
+    line-height: 1.7;
+    padding: 2px 2px 2px 0;
+    margin: 0 0;
+    border-radius: var(--b3-border-radius);
+}
+
+div.li > div.p > div {
+    margin-left: 8px !important;
+}
+
+/* 效果: 一级列表 1.  二级列表 1.1  三级列表 1.1.1 */
+.list[data-subtype=o] {
+    counter-reset: none;
+}
+
+.protyle-wysiwyg .li[data-subtype=o] .li[data-subtype=o] > .protyle-action,
+.protyle-wysiwyg .li[data-subtype=o] .li[data-subtype=o] .li[data-subtype=o] > .protyle-action,
+.protyle-wysiwyg .li[data-subtype=o] .li[data-subtype=o] .li[data-subtype=o] .li[data-subtype=o] > .protyle-action {
+    color: rgba(0, 0, 0, 0) !important;
+}
+
+.protyle-wysiwyg .li[data-subtype=o] .li[data-subtype=o] > .protyle-action::after,
+.protyle-wysiwyg .li[data-subtype=o] .li[data-subtype=o] .li[data-subtype=o] > .protyle-action::after,
+.protyle-wysiwyg .li[data-subtype=o] .li[data-subtype=o] .li[data-subtype=o] .li[data-subtype=o] > .protyle-action::after {
+    display: table;
+}
+
+.protyle-wysiwyg .li[data-subtype=o] {
+    counter-increment: olcounter1
+}
+
+.protyle-wysiwyg .li[data-subtype=o] .li[data-subtype=o] {
+    counter-increment: olcounter2;
+    padding-left: 10px;
+}
+
+.protyle-wysiwyg .li[data-subtype=o] .li[data-subtype=o] .li[data-subtype=o] {
+    counter-increment: olcounter3;
+    padding-left: 28px;
+}
+
+.protyle-wysiwyg .li[data-subtype=o] .li[data-subtype=o] .li[data-subtype=o] .li[data-subtype=o] {
+    counter-increment: olcounter4;
+    padding-left: 46px;
+}
+
+/* 有序列表计数 */
+.protyle-wysiwyg .li[data-subtype=o] .li[data-subtype=o] > .protyle-action::after {
+    content: counter(olcounter1, -moz-devanagari) "." counter(olcounter2, decimal);
+}
+
+.protyle-wysiwyg .li[data-subtype=o] .li[data-subtype=o] .li[data-subtype=o] > .protyle-action::after {
+    content: counter(olcounter1, decimal) "." counter(olcounter2, decimal) "." counter(olcounter3, decimal)
+}
+
+.protyle-wysiwyg .li[data-subtype=o] .li[data-subtype=o] .li[data-subtype=o] .li[data-subtype=o] > .protyle-action::after {
+    content: counter(olcounter1, decimal) "." counter(olcounter2, decimal) "." counter(olcounter3, decimal) "." counter(olcounter4, decimal)
+}

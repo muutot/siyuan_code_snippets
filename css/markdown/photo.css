@@ -1,0 +1,10 @@
+/* 图片居中 */
+[data-type="img"] {
+    width: 33%;
+    min-width: calc(100% - 0.1em);
+}
+
+/* 去除图片后的多余空行 CSS片段 */
+.b3-typography .img:not([style]), .protyle-wysiwyg .img:not([style]) {
+    display: inline-block;
+}

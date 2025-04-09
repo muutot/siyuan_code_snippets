@@ -1,0 +1,159 @@
+/* 字体 */
+:root {
+    --b3-font-family-code: 'ibm plex mono', 'yahei consolas hybrid';
+}
+
+/* 代码块 行高度 */
+.code-block .hljs > span {
+    line-height: 19px;
+}
+
+/* 列表下 距离左侧距离 */
+div.li .code-block {
+    left: 30px;
+}
+
+.protyle-wysiwyg .code-block {
+    --b3-protyle-code-linenumber-hl: color-mix(in srgb, var(--b3-theme-surface) 55%, var(--b3-theme-primary));
+    margin: .4em 0 1em 0 !important; /* bottom 连续代码块给命名腾出个地方 */
+    padding: 0.3em 0.2em 0.3em 0.2em !important;
+}
+
+/* 代码块整体 默认设置存在行号*/
+.protyle-wysiwyg .code-block .hljs {
+    padding: 0.3em 0.2em 0.3em 0.2em;
+    background-color: var(--b3-code-block-backgroud-color);
+    /* margin-left: 2.2em; 没有行号的时候清空样式 */
+    position: inherit;
+    max-height: 550px; /* 设置单一代码块最大高度 */
+}
+
+/* 隐藏代码块后 去除上面的 padding 和 maring 显示第一行代码 */
+.protyle-wysiwyg .code-block[fold="1"] .hljs {
+    padding-top: 0;
+    margin-top: 0;
+}
+
+/* 行号 */
+.protyle-wysiwyg .code-block .protyle-linenumber__rows {
+    padding-top: 0px;
+    font-size: 12px;
+    width: 2.2em;
+}
+
+/* 标题栏 */
+.protyle-wysiwyg[data-readonly=false] .code-block .protyle-action {
+    -webkit-user-modify: read-only;
+    /* 修复第一行代码不可点击 修复后 -> 前85%的位置可以点击 */
+    position: absolute;
+    left: 95%;
+    top: 0;
+}
+
+/* 语言选择栏 */
+.code-block .protyle-action .protyle-action__language {
+    -webkit-user-modify: read-only;
+    margin-top: 0;
+    position: absolute;
+    right: inherit;
+    float: right;
+    width: 90px;
+    padding-left: 0;
+    margin-left: 0;
+    margin-right: 3.5em;
+    text-align: right;
+}
+
+/* 复制按钮 */
+.protyle-action .protyle-icon--first {
+    border-radius: 8px;
+    padding-left: 6px;
+    margin-right: 1em;
+}
+
+/* 更多按钮 */
+.protyle-action .protyle-icon--last {
+    display: none;
+}
+
+/* 属性名 */
+.code-block > .protyle-attr {
+    top: -16px;
+}
+
+.protyle-wysiwyg [data-node-id][fold="1"]:not(.li):not([data-type=NodeHeading]) {
+    opacity: 1;
+}
+
+.protyle-wysiwyg [data-node-id][fold="1"]:not(.li):not([data-type=NodeHeading]) .protyle-attr {
+    opacity: 1;
+    top: -16px;
+}
+
+/* 代码主题设置 */
+.hljs {
+    color: #EEBEFA;
+    background-color: #2b2d30;
+    font-weight: 500;
+    margin-top: 3px;
+}
+
+.hljs-keyword {
+    color: #2091F6;
+}
+
+.hljs-string {
+    color: #827CDA;
+}
+
+.hljs-attr {
+    color: #40CFDC;
+}
+
+.class_ {
+    color: #fa2aad;
+}
+
+.hljs-title.class_ {
+    color: #fa2aad;
+}
+
+.hljs-type {
+    color: #FF7575;
+}
+
+.function_ {
+    color: #1DF528;
+}
+
+.hljs-title.function_ {
+    color: #1DF528;
+}
+
+.hljs-params {
+    color: #45ee8c;
+}
+
+.hljs-comment {
+    color: #808080;
+}
+
+.hljs-built_in {
+    color: #00CCCC;
+}
+
+.hljs-attribute {
+    color: gold;
+}
+
+.hljs-selector-class {
+    color: #ffa07a;
+}
+
+.hljs-selector-tag {
+    color: #ea51b2;
+}
+
+.hljs-meta {
+    color: #00f769;
+}

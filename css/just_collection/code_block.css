@@ -1,0 +1,31 @@
+/* 代码块滚动时语言和按钮固定在编辑器顶部 CSS片段 */
+/* author by JeffreyChen https://ld246.com/article/1728146248791 */
+.protyle-wysiwyg[contenteditable] .code-block .protyle-action {
+    align-items: center;
+    background-color: var(--b3-theme-surface, #e9e5de);
+    position: sticky !important;
+    top: 0 !important;
+    padding: 0 !important;
+    height: 30px;
+}
+
+.b3-typography .code-block:not(pre), .protyle-wysiwyg .code-block:not(pre) {
+    padding-top: 0.2em;
+}
+
+/* 去除.protyle-action和.protyle-breadcrumb之间的缝隙 */
+.protyle-breadcrumb {
+    padding-bottom: 0px;
+}
+
+/* 始终显示.protyle-action上的按钮（看情况选择是否使用） */
+/*.b3-typography .code-block:not(pre) .protyle-icon, .b3-typography .code-block:not(pre) .protyle-action__language, .protyle-wysiwyg .code-block:not(pre) .protyle-icon, .protyle-wysiwyg .code-block:not(pre) .protyle-action__language {
+    opacity: .86 !important;
+}*/
+/* 块被高亮时隐藏.protyle-action以避免样式问题 */
+.protyle-wysiwyg--select.code-block .protyle-action,
+.protyle-wysiwyg--hl.code-block .protyle-action,
+.protyle-wysiwyg--select .code-block .protyle-action,
+.protyle-wysiwyg--hl .code-block .protyle-action {
+    opacity: 0 !important;
+}

@@ -1,0 +1,17 @@
+/*  这段代码会导致上下键失效 暂时无解决方法 先弃用
+.emojis__title[data-type="0"],
+.emojis__title[data-type="1"],
+.emojis__title[data-type="0"] + div {
+    display: none;
+}
+*/
+
+/* 选中表情 背景颜色 定位当前表情 */
+.emojis__item--current, .emojis__item:hover {
+    background: #6aace7 !important;
+}
+
+/* 单个表情框的圆角 */
+.emojis__item {
+    border-radius: 6px;
+}

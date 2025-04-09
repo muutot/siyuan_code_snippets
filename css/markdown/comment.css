@@ -1,0 +1,24 @@
+[data-theme-mode=dark] .protyle-wysiwyg span[data-type~=inline-memo]:hover {
+    color: #fdfae8 !important; /* 鼠标移到焦点后下划线颜色 */
+    background-color: rgba(0, 0, 0, 0);
+    box-shadow: none;
+}
+
+[data-theme-mode=dark] .protyle-wysiwyg span[data-type~=inline-memo] {
+    text-decoration-color: #00c2ff; /* 默认下划线颜色 */
+}
+
+[data-theme-mode=dark] .tooltip--memo#tooltip {
+    margin-top: 3px;
+    margin-left: 3px;
+    background-color: #2e3236;
+    color: #c78eda;
+}
+
+[data-theme-mode=dark] .protyle-wysiwyg--attr .protyle-attr > div:not(.protyle-attr--memo):not(.protyle-attr--refcount) {
+    color: #00b6ff;
+}
+
+.protyle-wysiwyg [data-node-id] span[data-type~=block-ref]:not(.av__celltext), .protyle-wysiwyg [data-node-id] span[data-type~=file-annotation-ref] {
+    color: #6791f3;
+}
