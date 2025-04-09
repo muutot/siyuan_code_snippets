@@ -3,9 +3,14 @@ import time
 from itertools import chain
 import os
 
-# siyuan_doc_path = "b:/note/Siyuan" # 填写实际的思源文本路径,
-siyuan_doc_path = "./output/"  # 测试路径
-siyuan_conf_path = os.path.join(siyuan_doc_path, "data/snippets/conf.json")
+siyuan_doc_path = "b:/note/Siyuan"  # 填写实际的思源文本路径,
+siyuan_doc_path_test = "./output/"  # 测试路径
+conf_path = "data/snippets/conf.json"
+
+siyuan_conf_path = os.path.join(siyuan_doc_path, conf_path)
+test_conf_path = os.path.join(siyuan_doc_path_test, conf_path)
+# 这里增加屏蔽的代码片段文件
+# 也可以将不要的代码片段文件添加到 just_collection 中 也不会生成
 ban_snippets = set()
 
 do_time = time.strftime("%Y%m%d%H%M%S", time.localtime())
@@ -16,6 +21,11 @@ def get_id():
     global snippet_id
     snippet_id += 1
     return f"{do_time}-{str(snippet_id).zfill(7)}"
+
+
+class OutputFlag:
+    TEST = 1 << 1
+    SIYUAN = 1 << 2
 
 
 class BaseSnippets:
@@ -73,23 +83,29 @@ class SnippetConfig:
         ):
             self.css.append(CSSSnippets(snippet_name, snippet_name not in ban_snippets, file_path))
 
-    def output_json(self):
+    def output_json(self, output_target):
         _all = []
         for i in chain(self.css, self.js):
             _all.append(i.data_json())
 
-        self.check_and_create_not_exist_save_path()
+        def output(path):
+            self.check_and_create_not_exist_save_path(path)
+            with open(path, "w", encoding="utf-8") as f:
+                json.dump(_all, f, indent=2, ensure_ascii=False)
 
-        with open(siyuan_conf_path, "w", encoding="utf-8") as f:
-            json.dump(_all, f, indent=2, ensure_ascii=False)
+        if output_target & OutputFlag.SIYUAN:
+            output(siyuan_conf_path)
+        if output_target & OutputFlag.TEST:
+            output(test_conf_path)
 
-    def check_and_create_not_exist_save_path(self):
-        if os.path.exists(siyuan_conf_path):
+    @staticmethod
+    def check_and_create_not_exist_save_path(path):
+        if os.path.exists(path):
             return
-        if os.path.isdir(siyuan_conf_path):
-            os.makedirs(siyuan_conf_path, exist_ok=True)
+        if os.path.isdir(path):
+            os.makedirs(path, exist_ok=True)
         else:
-            os.makedirs("/".join(siyuan_conf_path.split("/")[:-1]), exist_ok=True)
+            os.makedirs("/".join(path.split("/")[:-1]), exist_ok=True)
 
     @staticmethod
     def traverse_directory_os(path: str, ignore_hidden: bool = True, extensions: list = None):
@@ -109,4 +125,7 @@ class SnippetConfig:
 
 
 if __name__ == '__main__':
-    SnippetConfig().output_json()
+    flag = 0
+    # flag += OutputFlag.SIYUAN  # 输出思源
+    flag += OutputFlag.TEST  # 输出测试
+    SnippetConfig().output_json(flag)
