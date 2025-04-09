@@ -3,11 +3,6 @@
 .protyle-wysiwyg .sb {
     margin: 4px 8px 8px 4px !important;
 
-    & .sb:hover {
-        border: 2px solid green;
-        margin: 3px;
-        background-color: #333334;
-    }
 
     & .p {
         margin-left: 10px;

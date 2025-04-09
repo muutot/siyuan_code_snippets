@@ -1,0 +1,6 @@
+/* 超级块显隐 */
+.protyle-wysiwyg .sb .sb:hover {
+    border: 2px solid green;
+    margin: 3px;
+    background-color: #333334;
+}
