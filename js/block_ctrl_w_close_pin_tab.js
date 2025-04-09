@@ -1,12 +1,6 @@
-// 之前的实现方式是永久性修改，确实会产生一些副作用，毕竟思源挺多功能还是依赖这个 item-focus 的。
-// 所以，我改了实现方式，现在通过按键临时修改 item-focus，按键结束就恢复。这样就不易产生副作用。
-// 并且，增加了，在切换标签对话框中，钉住的标签页也置顶的功能，如果使用把 `isMovePinTabToTopInTabSwitchDialog` 设为 true 即可，默认已经设为 true 了，如果不使用设为 false 即可。
-// 复制下面的代码，并替换原来的代码即可。
-// 别忘了样式的备份与更新。
-// 但，这样实现方式也有个缺点，这个与快捷键绑定，当你修改了关闭标签的快捷键时需要修改代码，不过快捷键一般不会修改，相信仅仅修改快捷键代码你应该还是会的。
-// version 2
+// version 3 from wilsons
 // see https://ld246.com/article/1723109908986
-(() => {
+(()=>{
   // 注入样式，模拟激活标签的样式，可根据自己的样式进行调整
   addStyle(`
         .layout__wnd--active .layout-tab-bar .item--pin--focus:after {
@@ -23,11 +17,11 @@
         }
     `);
 
-  // 是否在最近打开文档对话框中，将钉住标签移动到最上面，默认不移动，改为true时则移动
-  const isMovePinTabToTopInRecentlyDialog = true;
+  // 是否在最近打开文档对话框中，将钉住标签移动到当前焦点的下面，默认不移动，改为true时则移动
+  const isMovePinTabToFocusNextInRecentlyDialog  = true;
 
-  // 是否在标签切换对话框中，将钉住标签移动到最上面，默认不移动，改为true时则移动
-  const isMovePinTabToTopInTabSwitchDialog = true;
+  // 是否在标签切换对话框中，将钉住标签移动到当前焦点的下面，默认不移动，改为true时则移动
+  const isMovePinTabToFocusNextInTabSwitchDialog  = true;
 
   //////////////// 以下代码，不涉及样式调整，非必要勿动 //////////////////////
 
@@ -37,48 +31,48 @@
     let originalValues = {};
 
     // 当按ctrl+w时，临时修改item--focus为item--pin--focus
-    document.addEventListener('keydown', function (event) {
+    document.addEventListener('keydown', function(event) {
       if ((event.ctrlKey || event.metaKey) && event.key === 'w') {
         // 临时修改item--focus为item--pin--focus
         const focusPinTab = element.querySelector('.layout-tab-bar .item--pin.item--focus');
-        if (focusPinTab) {
+        if(focusPinTab){
           focusPinTab.classList.remove('item--focus');
           focusPinTab.classList.add('item--pin--focus');
         }
 
         // 临时修改activetime为0，值为0可以避免被获得焦点
-        if (Object.keys(originalValues).length === 0) {
+        if(Object.keys(originalValues).length === 0) {
           const items = element.querySelectorAll('.layout-tab-bar .item--pin');
           let maxActivetimeItem = null;
           let maxActivetime = 0;
           items.forEach(item => {
             originalValues[item.getAttribute("data-id")] = item.dataset.activetime;
-            if (item.dataset.activetime > maxActivetime) {
+            if(item.dataset.activetime > maxActivetime){
               maxActivetime = item.dataset.activetime;
               maxActivetimeItem = item;
             }
             item.dataset.activetime = 0;
           });
           // 把最后激活的文档设为下一个焦点
-          if (maxActivetimeItem) maxActivetimeItem.dataset.activetime = 1;
+          if(maxActivetimeItem) maxActivetimeItem.dataset.activetime = 1;
         }
       }
-    }, {capture: true});
+    }, { capture: true });
 
     // 当按释放按键是，恢复item--pin--focus为item--focus
-    document.addEventListener('keyup', function (event) {
+    document.addEventListener('keyup', function(event) {
       // 恢复item--pin--focus为item--focus
       const focusPinTab = element.querySelector('.layout-tab-bar .item--pin.item--pin--focus');
-      if (focusPinTab) {
+      if(focusPinTab){
         focusPinTab.classList.remove('item--pin--focus');
         focusPinTab.classList.add('item--focus');
       }
 
       // 恢复activetime的值
-      if (Object.keys(originalValues).length > 0) {
+      if(Object.keys(originalValues).length > 0) {
         const items = element.querySelectorAll('.layout-tab-bar .item--pin');
         items.forEach(item => {
-          if (item.dataset.activetime <= 1) item.dataset.activetime = originalValues[item.getAttribute("data-id")];
+          if(item.dataset.activetime <= 1) item.dataset.activetime = originalValues[item.getAttribute("data-id")];
         });
         //清空originalValues
         Object.keys(originalValues).forEach(key => {
@@ -88,21 +82,21 @@
     }, true);
 
     // 监听最近打开文档 和 页签切换
-    if (isMovePinTabToTopInRecentlyDialog || isMovePinTabToTopInTabSwitchDialog) {
-      observeDialogShow((node, dialog) => {
+    if(isMovePinTabToFocusNextInRecentlyDialog || isMovePinTabToFocusNextInTabSwitchDialog) {
+      observeDialogShow((node, dialog)=>{
         // 监听最近打开文档
-        if (dialog === 'dialog-recentdocs') {
+        if(dialog === 'dialog-recentdocs'){
           // 获取所有钉住的标签
           const pinTabNodeIds = getAllPinTabNodeIds();
-          // 把所有最近文档的钉住标签，移动到顶部
-          movePinTabItemToTop(node, pinTabNodeIds);
+          // 把所有最近文档的钉住标签，移动到当前焦点的下面
+          movePinTabItemToFocusTabNext(node, pinTabNodeIds);
         }
         // 监听页签切换
-        if (dialog === 'dialog-switchtab') {
+        if(dialog === 'dialog-switchtab'){
           // 获取所有钉住的标签
           const pinTabNodeIds = getAllPinTabNodeIds();
-          // 把所有最近文档的钉住标签，移动到顶部
-          movePinTabItemToTop(node, pinTabNodeIds);
+          // 把所有最近文档的钉住标签，移动到当前焦点的下面
+          movePinTabItemToFocusTabNext(node, pinTabNodeIds);
         }
       });
     }
@@ -115,18 +109,18 @@
     let pinTabNodeIds = [];
     pinTabs.forEach(pin => {
       let initData = pin.getAttribute("data-initdata");
-      if (initData) {
+      if(initData){
         // 初始化时的数据
         initData = JSON.parse(initData);
-        if (initData && initData.blockId) {
+        if(initData && initData.blockId) {
           pinTabNodeIds.push(initData.blockId);
         }
       } else {
         // 内容加载后的数据
         const dataId = pin.getAttribute("data-id");
         const parents = pin.closest("div.fn__flex");
-        const nodeId = parents?.nextElementSibling?.querySelector('div[data-id="' + dataId + '"] .protyle-breadcrumb__item svg.popover__block')?.getAttribute("data-id");
-        if (nodeId) {
+        const nodeId = parents?.nextElementSibling?.querySelector('div[data-id="'+dataId+'"] .protyle-breadcrumb__item svg.popover__block')?.getAttribute("data-id");
+        if(nodeId) {
           pinTabNodeIds.push(nodeId);
         }
       }
@@ -134,10 +128,14 @@
     return pinTabNodeIds;
   }
 
-  // 移动最近打开文档或文档切换列表的node-id在pinTabNodeIds中的元素置顶
-  async function movePinTabItemToTop(node, pinTabNodeIds) {
-    const ulElement = await whenElementExist(() => {
-      return node.querySelector("ul.b3-list--background.fn__flex-1");
+  // 移动最近打开文档或文档切换列表的node-id在pinTabNodeIds中的元素到当前焦点的下面
+  async function movePinTabItemToFocusTabNext(node, pinTabNodeIds) {
+    let ulElement = null;
+    let focusElement = null;
+    await whenElementExist(()=>{
+      ulElement = node.querySelector("ul.b3-list--background.fn__flex-1");
+      focusElement = ulElement?.querySelector("li.b3-list-item--focus");
+      return ulElement && focusElement;
     });
     pinTabNodeIds.reverse();
     // 遍历 pinTabNodeIds 数组
@@ -145,8 +143,8 @@
       // 查找具有相应 data-node-id 的 li 元素
       const item = ulElement.querySelector(`li[data-node-id="${nodeId}"]`);
       if (item) {
-        // 将找到的 li 元素移动到 ul 的顶部
-        ulElement.prepend(item);
+        // 将 item 插入到 focusElement 后面
+        focusElement.parentElement.insertBefore(item, focusElement.nextSibling);
       }
     });
   }
@@ -161,10 +159,10 @@
           for (let node of mutation.addedNodes) {
             if (node.nodeType === Node.ELEMENT_NODE && node.tagName.toLowerCase() === 'div') {
               if (node.hasAttribute('data-key') && node.getAttribute('data-key') === 'dialog-recentdocs') {
-                if (typeof callback === 'function') callback(node, 'dialog-recentdocs');
+                if(typeof callback === 'function') callback(node, 'dialog-recentdocs');
               }
               if (node.hasAttribute('data-key') && node.getAttribute('data-key') === 'dialog-switchtab') {
-                if (typeof callback === 'function') callback(node, 'dialog-switchtab');
+                if(typeof callback === 'function') callback(node, 'dialog-switchtab');
               }
             }
           }
