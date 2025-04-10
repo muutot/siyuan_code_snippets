@@ -1,7 +1,7 @@
 import json
+import os
 import time
 from itertools import chain
-import os
 
 siyuan_doc_path = "b:/note/Siyuan"  # 填写实际的思源文本路径,
 siyuan_doc_path_test = "./output/"  # 测试路径

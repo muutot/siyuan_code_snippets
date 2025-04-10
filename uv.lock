@@ -3,6 +3,6 @@ revision = 1
 requires-python = ">=3.13"
 
 [[package]]
-name = "siyuan-code-snipaste"
+name = "siyuan-code-snippets"
 version = "0.1.0"
 source = { virtual = "." }
