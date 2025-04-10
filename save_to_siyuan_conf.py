@@ -18,6 +18,16 @@ snippet_id = 0
 
 
 def get_id():
+    """
+    Generate a unique snippet ID based on the script run timestamp and an incremented counter.
+
+    This function uses a global counter, `snippet_id`, which is incremented each time
+    the function is called. The ID consists of the script run date and time in the format
+    'YYYYMMDDHHMMSS', followed by a hyphen and a zero-padded seven-digit counter.
+
+    Returns:
+        str: A unique snippet ID in the format 'YYYYMMDDHHMMSS-XXXXXXX'.
+    """
     global snippet_id
     snippet_id += 1
     return f"{do_time}-{str(snippet_id).zfill(7)}"
