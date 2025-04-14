@@ -60,15 +60,22 @@ div.li .code-block {
     width: 90px;
     padding-left: 0;
     margin-left: 0;
-    margin-right: 3.5em;
+    margin-right: 4em;
     text-align: right;
 }
 
 /* 复制按钮 */
-.protyle-action .protyle-icon--first {
-    border-radius: 8px;
+.protyle-action .protyle-action__copy {
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    /*border-radius: 8px;*/
     padding-left: 6px;
-    margin-right: 1em;
+}
+
+/* 复制按钮 折叠按钮 */
+.protyle-action .protyle-icon--expand {
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
 }
 
 /* 更多按钮 */
