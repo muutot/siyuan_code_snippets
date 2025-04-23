@@ -23,5 +23,11 @@ span.b3-chip {
 
 /* 抵消外部 Item 样式 */
 div.fn__flex.av__views > div.layout-tab-bar.fn__flex .item {
-    margin-bottom: 0px;
+    margin-bottom: 0;
+}
+
+
+/* 屏蔽列标题 类别图标 */
+.av__row--header .av__cellheadericon {
+    display: none;
 }
