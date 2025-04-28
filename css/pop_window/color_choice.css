@@ -12,23 +12,38 @@
 
 /* 去除无用的按钮 */
 .protyle-util .protyle-font > div:nth-child(n+5):nth-child(-n+8),
-.protyle-util .protyle-font > div:nth-child(n+17):nth-child(-n+20),
-.protyle-util .protyle-font > div:nth-child(22),
-.protyle-util .protyle-font > div:nth-child(24) {
+.protyle-util .protyle-font > div:nth-child(n+17):nth-child(-n+20) {
     display: none;
 }
 
+/*字号选择*/
 .protyle-util .protyle-font > div:nth-child(21) {
     display: inline;
     font-size: 16px;
     position: relative;
     top: 3px;
     left: 5px;
+
+    & label {
+        display: inline;
+        float: right;
+    }
 }
 
-.protyle-util .protyle-font > div:nth-child(21)::after {
-    content: ":  "
+/*清除样式*/
+.protyle-util .protyle-font > div:nth-child(24) {
+    & button {
+        width: 100%;
+        text-align: center;
+        right: -3px;
+    }
+
+
+    & svg {
+        display: none;
+    }
 }
+
 
 div.protyle-util .protyle-font > div:nth-child(23),
 div.protyle-util .protyle-font > div:nth-child(25) {
