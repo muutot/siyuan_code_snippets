@@ -49,7 +49,7 @@ class BaseSnippets:
 
     def load_from_file(self, file_path):
         with open(file_path, "r", encoding="utf-8") as f:
-            return "\n".join(f.readlines())
+            return "".join(f.readlines())
 
     def data_json(self):
         return {
