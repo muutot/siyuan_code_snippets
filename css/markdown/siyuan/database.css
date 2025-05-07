@@ -1,11 +1,11 @@
 /* 隐藏除了特定数据库块的其他主键列 CSS片段 */
 /* author by JeffreyChen https://ld246.com/article/1728354035172 */
-/* 启用代码片段后，给需要保留主键的数据库块添加自定义属性：hide-block=false */
-.protyle-wysiwyg .av:not([custom-hide-block=false]) [data-dtype="block"] {
+/* 启用代码片段后，给需要保留主键的数据库块添加自定义属性：hide-hpk=false */
+.protyle-wysiwyg .av:not([custom-hpk=false]) [data-dtype="block"] {
     display: none;
 }
 
-.protyle-wysiwyg .av:not([custom-hide-block=false]) .av__calc[data-dtype="block"]:first-child + .av__calc {
+.protyle-wysiwyg .av:not([custom-hpk=false]) .av__calc[data-dtype="block"]:first-child + .av__calc {
     padding-left: 1.625em;
     box-sizing: initial;
 }
