@@ -178,44 +178,51 @@ https://ld246.com/article/1724305128590/comment/1724740441386#comments
     const groupSize = Math.floor(menu.offsetHeight / (lineHeight + marginBottom))
 
     // 计算当前聚焦元素在其父元素中的索引
-    const currentFocusIndex = Array.prototype.indexOf.call(parent.children, currentFocus);
-    const totalGroup = Math.ceil(parent.children.length / groupSize);
+
+    const childrens = []
+    for (let children of parent.children){
+      if (children.classList && children.classList.contains("b3-menu__separator")){
+      }else{
+        childrens.push(children)
+      }
+    }
+    const currentFocusIndex = Array.prototype.indexOf.call(childrens, currentFocus);
+    const totalGroup = Math.ceil(childrens.length / groupSize);
     const curGroup = Math.ceil((currentFocusIndex + 1) / groupSize);
     let rowNum = (currentFocusIndex + 1) % groupSize;
     if (rowNum === 0) {
       rowNum = groupSize;
     }
     return {
-      parent: parent, rowNum: rowNum, groupSize: groupSize, curGroup: curGroup,
+      parent: parent, rowNum: rowNum, groupSize: groupSize, curGroup: curGroup, childrens:childrens,
       totalGroup: totalGroup, currentFocusIndex: currentFocusIndex, currentFocus: currentFocus
     }
   }
 
   function moveFocusByCol(isToRight) {
     const data = GetColData();
-    const menuParent = data.parent;
     let newFocusIndex;
     if (data.curGroup === 1 && !isToRight) {
-      newFocusIndex = SkipMenuToEnd(data, menuParent);
+      newFocusIndex = SkipMenuToEnd(data, data.childrens);
     } else if (data.curGroup === data.totalGroup && isToRight) {
       newFocusIndex = data.rowNum - 1;
     } else if (data.curGroup === data.totalGroup - 1 && isToRight) {
-      newFocusIndex = SkipMenuToEnd(data, menuParent);
+      newFocusIndex = SkipMenuToEnd(data, data.childrens);
     } else {
       newFocusIndex = data.currentFocusIndex + (isToRight ? data.groupSize : -data.groupSize);
     }
-    nextElementFocus(data.currentFocus, menuParent.children[newFocusIndex]);
+    nextElementFocus(data.currentFocus, data.childrens[newFocusIndex]);
   }
 
-  function SkipMenuToEnd(data, menuParent) {
-    let lastGroupButtonNum = menuParent.children.length % data.groupSize;
+  function SkipMenuToEnd(data, childrens) {
+    let lastGroupButtonNum = childrens.length % data.groupSize;
     if (lastGroupButtonNum === 0) {
       lastGroupButtonNum = data.groupSize;
     }
     if (data.rowNum <= lastGroupButtonNum) {
-      return menuParent.children.length + data.rowNum - lastGroupButtonNum - 1;
+      return childrens.length + data.rowNum - lastGroupButtonNum - 1;
     } else {
-      return menuParent.children.length - 1;
+      return childrens.length - 1;
     }
   }
 
@@ -233,8 +240,6 @@ https://ld246.com/article/1724305128590/comment/1724740441386#comments
         menu = document.querySelector(".hint--menu");
         menu.classList.remove("fn__none");
       }
-
-
       if (menu) Do(menu, event,)
     });
   }
@@ -245,11 +250,11 @@ https://ld246.com/article/1724305128590/comment/1724740441386#comments
       sepEl ? focusPreviousGroupButton() : moveFocusByCol(false);
     else if (event.key === "ArrowRight" || event.key === "Tab")
       sepEl ? focusNextGroupButton() : moveFocusByCol(true);
-    else if (event.key === 'Escape')
+    else if (event.key === 'Escape' || event.key === "Enter")
       menu.classList.add("fn__none");
     else return;
-    event.preventDefault();
     event.stopPropagation();
+    event.preventDefault();
   }
 
   // endregion key monitor
