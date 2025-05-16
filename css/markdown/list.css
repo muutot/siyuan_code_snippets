@@ -10,14 +10,15 @@
 .protyle-wysiwyg > p,
 .protyle-wysiwyg blockquote > p,
 .protyle-wysiwyg [data-node-id] {
-    line-height: 1.7;
-    padding: 2px 2px 2px 0;
+    line-height: 26px;
+    padding: 2px 2px 0 0;
     margin: 0 0;
     border-radius: var(--b3-border-radius);
 }
 
 div.li > div.p > div {
-    margin-left: 8px !important;
+    margin-left: 0 !important;
+    margin-top: 1px;
 }
 
 /* 效果: 一级列表 1.  二级列表 1.1  三级列表 1.1.1 */
@@ -25,6 +26,7 @@ div.li > div.p > div {
     counter-reset: none;
 }
 
+.protyle-wysiwyg .li[data-subtype=o] > .protyle-action,
 .protyle-wysiwyg .li[data-subtype=o] .li[data-subtype=o] > .protyle-action,
 .protyle-wysiwyg .li[data-subtype=o] .li[data-subtype=o] .li[data-subtype=o] > .protyle-action,
 .protyle-wysiwyg .li[data-subtype=o] .li[data-subtype=o] .li[data-subtype=o] .li[data-subtype=o] > .protyle-action {
@@ -38,33 +40,52 @@ div.li > div.p > div {
 }
 
 .protyle-wysiwyg .li[data-subtype=o] {
-    counter-increment: olcounter1
+    counter-increment: olcounter1;
+
+    & > .protyle-action::after {
+        content: counter(olcounter1, -moz-devanagari);
+        width: 200px;
+        right: 0;
+        color: violet;
+    }
 }
 
 .protyle-wysiwyg .li[data-subtype=o] .li[data-subtype=o] {
     counter-increment: olcounter2;
-    padding-left: 10px;
+    padding-left: 22px;
+
+    & > .protyle-action::after {
+        content: counter(olcounter1, -moz-devanagari) "." counter(olcounter2, decimal);
+        color: red;
+    }
 }
 
 .protyle-wysiwyg .li[data-subtype=o] .li[data-subtype=o] .li[data-subtype=o] {
     counter-increment: olcounter3;
-    padding-left: 28px;
+    padding-left: 32px;
+
+    & > .protyle-action::after {
+        content: counter(olcounter1, decimal) "." counter(olcounter2, decimal) "." counter(olcounter3, decimal);
+        color: greenyellow;
+    }
 }
 
 .protyle-wysiwyg .li[data-subtype=o] .li[data-subtype=o] .li[data-subtype=o] .li[data-subtype=o] {
     counter-increment: olcounter4;
     padding-left: 46px;
+
+    & > .protyle-action::after {
+        content: counter(olcounter1, decimal) "." counter(olcounter2, decimal) "." counter(olcounter3, decimal) "." counter(olcounter4, decimal);
+        color: deepskyblue;
+    }
 }
 
-/* 有序列表计数 */
-.protyle-wysiwyg .li[data-subtype=o] .li[data-subtype=o] > .protyle-action::after {
-    content: counter(olcounter1, -moz-devanagari) "." counter(olcounter2, decimal);
-}
+.protyle-wysiwyg .li[data-subtype=o] .li[data-subtype=o] .li[data-subtype=o] .li[data-subtype=o] .li[data-subtype=o] {
+    counter-increment: olcounter5;
+    padding-left: 63px;
 
-.protyle-wysiwyg .li[data-subtype=o] .li[data-subtype=o] .li[data-subtype=o] > .protyle-action::after {
-    content: counter(olcounter1, decimal) "." counter(olcounter2, decimal) "." counter(olcounter3, decimal)
-}
-
-.protyle-wysiwyg .li[data-subtype=o] .li[data-subtype=o] .li[data-subtype=o] .li[data-subtype=o] > .protyle-action::after {
-    content: counter(olcounter1, decimal) "." counter(olcounter2, decimal) "." counter(olcounter3, decimal) "." counter(olcounter4, decimal)
+    & > .protyle-action::after {
+        content: counter(olcounter1, decimal) "." counter(olcounter2, decimal) "." counter(olcounter3, decimal) "." counter(olcounter4, decimal) "." counter(olcounter5, decimal);
+        color: orange;
+    }
 }
