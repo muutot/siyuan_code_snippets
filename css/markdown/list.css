@@ -43,7 +43,7 @@ div.li > div.p > div {
     counter-increment: olcounter1;
 
     & > .protyle-action::after {
-        content: counter(olcounter1, -moz-devanagari);
+        content: counter(olcounter1, -moz-devanagari) ".";
         width: 200px;
         right: 0;
         color: violet;
