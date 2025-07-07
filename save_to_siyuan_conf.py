@@ -74,9 +74,9 @@ class SnippetConfig:
     def __init__(self):
         self.js = []
         self.css = []
-        self.Init()
+        self.init()
 
-    def Init(self):
+    def init(self):
         self.load_css()
         self.load_js()
 
