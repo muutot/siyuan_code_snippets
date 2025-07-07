@@ -170,7 +170,8 @@ class SnippetConfig:
                     continue
                 if extensions and os.path.splitext(filename)[1].lower() not in extensions:
                     continue
-                snippet_name = f"{root[len(path) + 1:].replace("\\", "-")}-{os.path.splitext(filename)[0]}"
+                name = root[len(path) + 1:].replace("\\", "-")
+                snippet_name = f"{name}-{os.path.splitext(filename)[0]}"
                 file_path = os.path.join(root, filename)
                 yield snippet_name, file_path
 
