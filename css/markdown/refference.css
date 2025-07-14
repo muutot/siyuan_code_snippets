@@ -2,3 +2,8 @@
 .bq .p {
     margin-left: 10px;
 }
+
+div.bq {
+    margin-bottom: 6px !important;
+    padding-bottom: 2px !important;
+}
