@@ -4,7 +4,8 @@ A collection of CSS and JavaScript snippets for customizing and enhancing the [S
 
 ## Overview
 
-This repository contains a collection of code snippets that can be used to customize the appearance and functionality of SiYuan. It also includes a Python script for automatically generating the `conf.json` file that SiYuan uses to load these snippets.
+This repository contains a collection of code snippets that can be used to customize the appearance and functionality of SiYuan. It also includes a Python script for automatically generating the
+`conf.json` file that SiYuan uses to load these snippets.
 
 ## Repository Structure
 
@@ -37,16 +38,16 @@ This repository contains a collection of code snippets that can be used to custo
    cd siyuan_code_snippets
    ```
 
-2. Modify the `siyuan_doc_path` variable in `save_to_siyuan_conf.py` to point to your SiYuan installation directory:
+2. Modify the `siyuan_doc_path` variable in `setting.py` to point to your SiYuan workspace directory:
    ```python
-   siyuan_doc_path = "path/to/your/siyuan/installation"
+   siyuan_doc_path = "path/to/your/siyuan/workspace"
    ```
 
 ### Generating the Configuration File
 
 1. Run the script to generate the configuration file:
    ```bash
-   python save_to_siyuan_conf.py
+   python main.py
    ```
 
 2. By default, the script will generate a test configuration in the `./output/` directory. To generate the configuration directly in your SiYuan installation, modify the flags in the script:
@@ -60,15 +61,15 @@ This repository contains a collection of code snippets that can be used to custo
 
 ### CSS Snippets
 
-Place your CSS files in the appropriate subdirectory under `css/`. The script will automatically detect and include them in the configuration.
+Place your CSS files in the appropriate subdirectory under `snippets/css/`. The script will automatically detect and include them in the configuration.
 
 ### JavaScript Snippets
 
-Place your JavaScript files in the `js/` directory. The script will automatically detect and include them in the configuration.
+Place your JavaScript files in the `snippets/js/` directory. The script will automatically detect and include them in the configuration.
 
 ### Excluding Snippets
 
-To exclude specific snippets from being included in the configuration, add their names to the `ban_snippets` set in `save_to_siyuan_conf.py`.
+To exclude specific snippets from being included in the configuration, add their names to the `ban_snippets` set in `setting.py`.
 
 ## Features
 
