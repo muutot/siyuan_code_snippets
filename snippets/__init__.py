@@ -3,15 +3,7 @@ import os
 import time
 from itertools import chain
 
-siyuan_doc_path = "b:/note/Siyuan"  # 填写实际的思源文本路径,
-siyuan_doc_path_test = "./output/"  # 测试路径
-conf_path = "data/snippets/conf.json"
-
-siyuan_conf_path = os.path.join(siyuan_doc_path, conf_path)
-test_conf_path = os.path.join(siyuan_doc_path_test, conf_path)
-# 这里增加屏蔽的代码片段文件
-# 也可以将不要的代码片段文件添加到 just_collection 中 也不会生成
-ban_snippets = set()
+from setting import siyuan_conf_path, test_conf_path, ban_snippets
 
 do_time = time.strftime("%Y%m%d%H%M%S", time.localtime())
 snippet_id = 0
@@ -81,14 +73,14 @@ class SnippetConfig:
 
     def load_js(self):
         for snippet_name, file_path in self.traverse_directory_os(
-                path="./js",
+                path="snippets/js",
                 extensions=['.js']
         ):
             self.js.append(JSSnippets(snippet_name, snippet_name not in ban_snippets, file_path))
 
     def load_css(self):
         for snippet_name, file_path in self.traverse_directory_os(
-                path="./css",
+                path="snippets/css",
                 extensions=['.css']
         ):
             self.css.append(CSSSnippets(snippet_name, snippet_name not in ban_snippets, file_path))
