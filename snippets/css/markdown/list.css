@@ -21,6 +21,10 @@ div.li > div.p > div {
     margin-top: 1px;
 }
 
+div.li > div.p[data-type="NodeParagraph"] > div {
+    margin-top: 3px;
+}
+
 /* 效果: 一级列表 1.  二级列表 1.1  三级列表 1.1.1 */
 .list[data-subtype=o] {
     counter-reset: none;
