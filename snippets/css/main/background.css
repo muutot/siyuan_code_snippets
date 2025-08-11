@@ -1,8 +1,7 @@
 body {
     background-image: url('public/background/frosted_win.jpg') !important;
     background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    background-repeat: repeat;
 }
 
 /* 透明化工作区 */
@@ -12,4 +11,8 @@ body {
 .fn__flex-column[data-type=wnd] > .fn__flex:first-child /* 标签页栏 */
 {
     background-color: #00000000 !important;
+}
+
+.protyle-wysiwyg img {
+    background: wheat !important;
 }
