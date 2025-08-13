@@ -46,6 +46,7 @@ div.li .code-block {
     -webkit-user-modify: read-only;
     /* 修复第一行代码不可点击 修复后 -> 前85%的位置可以点击 */
     position: absolute;
+    margin-right: 10px;
     left: 95%;
     top: 0;
 }
