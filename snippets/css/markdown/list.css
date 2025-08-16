@@ -1,6 +1,3 @@
-.protyle-wysiwyg [data-node-id].li > [data-node-id] {
-    padding-right: 0;
-}
 
 .b3-typography li > p,
 .b3-typography > p,
@@ -17,12 +14,11 @@
 }
 
 div.li > div.p > div {
-    margin-left: 0 !important;
     margin-top: 1px;
 }
 
 div.li > div.p[data-type="NodeParagraph"] > div {
-    margin-top: 3px;
+    margin-top: 2px;
 }
 
 /* 效果: 一级列表 1.  二级列表 1.1  三级列表 1.1.1 */
@@ -56,7 +52,6 @@ div.li > div.p[data-type="NodeParagraph"] > div {
 
 .protyle-wysiwyg .li[data-subtype=o] .li[data-subtype=o] {
     counter-increment: olcounter2;
-    padding-left: 22px;
 
     & > .protyle-action::after {
         content: counter(olcounter1, -moz-devanagari) "." counter(olcounter2, decimal);
@@ -66,7 +61,6 @@ div.li > div.p[data-type="NodeParagraph"] > div {
 
 .protyle-wysiwyg .li[data-subtype=o] .li[data-subtype=o] .li[data-subtype=o] {
     counter-increment: olcounter3;
-    padding-left: 32px;
 
     & > .protyle-action::after {
         content: counter(olcounter1, decimal) "." counter(olcounter2, decimal) "." counter(olcounter3, decimal);
@@ -76,7 +70,6 @@ div.li > div.p[data-type="NodeParagraph"] > div {
 
 .protyle-wysiwyg .li[data-subtype=o] .li[data-subtype=o] .li[data-subtype=o] .li[data-subtype=o] {
     counter-increment: olcounter4;
-    padding-left: 46px;
 
     & > .protyle-action::after {
         content: counter(olcounter1, decimal) "." counter(olcounter2, decimal) "." counter(olcounter3, decimal) "." counter(olcounter4, decimal);
@@ -86,7 +79,6 @@ div.li > div.p[data-type="NodeParagraph"] > div {
 
 .protyle-wysiwyg .li[data-subtype=o] .li[data-subtype=o] .li[data-subtype=o] .li[data-subtype=o] .li[data-subtype=o] {
     counter-increment: olcounter5;
-    padding-left: 63px;
 
     & > .protyle-action::after {
         content: counter(olcounter1, decimal) "." counter(olcounter2, decimal) "." counter(olcounter3, decimal) "." counter(olcounter4, decimal) "." counter(olcounter5, decimal);

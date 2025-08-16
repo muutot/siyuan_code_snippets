@@ -6,7 +6,7 @@
 
 .protyle-wysiwyg [data-node-id].li > .list {
     margin-left: 10px !important;
-    padding-left: 16px;
+    padding-left: 35px;
     padding-top: 0;
     padding-bottom: 0
 }
