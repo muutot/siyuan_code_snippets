@@ -63,10 +63,18 @@
 }
 
 /* 按钮位置 */
-body:not(.body-asri--mobile) .protyle-background:not(.without-icon) .protyle-background__img.fn__none + .protyle-background__ia .protyle-background__action {
-    top: 18px;
-    left: 128px;
-    --y: 0;
-    --x: 0;
-    display: block;
+.protyle-background__icon[data-type="open-emoji"].fn__none ~ .protyle-background__action{
+    top: 18px !important;
+    left: 1px !important;
+    --y: 0 !important;
+    --x: 0 !important;
+    display: block !important;
+}
+
+.protyle-background__icon[data-type="open-emoji"] ~ .protyle-background__action{
+    top: 18px !important;
+    left: 128px !important;
+    --y: 0 !important;
+    --x: 0 !important;
+    display: block !important;
 }

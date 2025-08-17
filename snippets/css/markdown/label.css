@@ -25,9 +25,14 @@
     content: "" !important;
 }
 
+.protyle-background {
+  max-width: 200px;
+}
+
 .protyle-background__ia .b3-chips {
     margin-top: 18px;
     padding: 0 0 0 0;
+    min-width: 1287%;
 }
 
 .protyle-background .b3-chip--secondary {
