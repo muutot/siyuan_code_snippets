@@ -16,7 +16,7 @@
 }
 
 .protyle-title {
-    margin: 5px 0 0 10px !important;
+    margin: 5px 0 0 0 !important;
     width: 100%;
     font-size: 1.3em;
     top: 8px;
@@ -73,7 +73,7 @@
 
 .protyle-background__icon[data-type="open-emoji"] ~ .protyle-background__action{
     top: 18px !important;
-    left: 128px !important;
+    left: 100px !important;
     --y: 0 !important;
     --x: 0 !important;
     display: block !important;
