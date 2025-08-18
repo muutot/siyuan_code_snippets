@@ -20,7 +20,8 @@ img {
 
 /* 特殊情况,透明: 表情图, 标题图标 */
 img.emoji,
-.protyle-top img {
+.protyle-top img,
+.layout-tab-bar img{
     background: #00000000 !important;
 }
 
